@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - abctests
+name: Build and deploy Node.js app to Azure Web App - webServices
 
 on:
   push:
@@ -21,7 +21,7 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
-          node-version: '22.x'
+          node-version: '20.x'
 
       - name: npm install, build, and test
         run: |
@@ -51,15 +51,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_714CF75BE02B45C39D1D1B43C8EF4F9E }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_40A633E020204B0F9970A5AA570E7DE3 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7AA11379D3334E3380B5E07C2C71501B }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_4DED9B392AA94D25809D3E115B3E5EDF }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_99BF22B93F854D3C9BB1D93DE979D04E }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_2881497A16194E469FD947BAE1F87F0E }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'abctests'
+          app-name: 'webServices'
           slot-name: 'Production'
           package: .
           
